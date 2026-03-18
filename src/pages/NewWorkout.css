@@ -1,0 +1,249 @@
+.new-workout {}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.error-banner {
+  background: rgba(255, 71, 87, 0.15);
+  border: 1px solid var(--danger);
+  color: #ff6b7a;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.form-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-input {
+  background: #0f1b35;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 0.65rem 0.85rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  outline: none;
+  width: 100%;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.exercises-section {}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.exercise-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.exercise-header {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.exercise-name-input {
+  flex: 1;
+}
+
+.btn-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-icon.danger {
+  background: rgba(255, 71, 87, 0.15);
+  color: var(--danger);
+  transition: background 0.2s;
+}
+
+.btn-icon.danger:hover {
+  background: rgba(255, 71, 87, 0.3);
+}
+
+.btn-icon.small {
+  width: 26px;
+  height: 26px;
+  font-size: 0.75rem;
+}
+
+.sets-table {
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr 30px;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.sets-header {
+  display: contents;
+}
+
+.sets-header > span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-bottom: 0.25rem;
+}
+
+.set-row {
+  display: contents;
+}
+
+.set-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.set-input {
+  background: #0f1b35;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.45rem 0.5rem;
+  font-size: 0.95rem;
+  text-align: center;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.set-input:focus {
+  border-color: var(--primary);
+}
+
+.set-row > .btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.set-row > span:last-child {
+  display: block;
+}
+
+.btn-add-set {
+  background: transparent;
+  border: 1px dashed var(--card-border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  width: 100%;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-add-set:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-add-exercise {
+  background: transparent;
+  border: 2px dashed var(--card-border);
+  border-radius: 12px;
+  color: var(--text-muted);
+  padding: 1rem;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: border-color 0.2s, color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.btn-add-exercise:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.save-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--text-muted);
+  padding: 0.65rem 1.5rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-cancel:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+.btn-save {
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  padding: 0.65rem 1.75rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-save:hover {
+  background: var(--primary-hover);
+}
