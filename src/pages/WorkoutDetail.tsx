@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { useWorkouts } from '../hooks/useWorkouts'
+import { useWorkouts } from '../context/WorkoutsContext'
 import './WorkoutDetail.css'
 
 export default function WorkoutDetail() {

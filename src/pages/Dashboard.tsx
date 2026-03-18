@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useWorkouts } from '../hooks/useWorkouts'
+import { useWorkouts } from '../context/WorkoutsContext'
 import WorkoutCard from '../components/WorkoutCard'
 import './Dashboard.css'
 
@@ -12,7 +12,9 @@ export default function Dashboard() {
   startOfWeek.setHours(0, 0, 0, 0)
 
   const thisWeekCount = workouts.filter(w => new Date(w.date) >= startOfWeek).length
-  const recentWorkouts = workouts.slice(0, 5)
+  const recentWorkouts = [...workouts]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 5)
 
   return (
     <div className="dashboard">

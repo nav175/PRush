@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useWorkouts } from '../hooks/useWorkouts'
+import { useWorkouts } from '../context/WorkoutsContext'
 import type { Exercise, WorkoutSet } from '../types'
 import './NewWorkout.css'
 

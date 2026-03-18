@@ -1,4 +1,4 @@
-import { useWorkouts } from '../hooks/useWorkouts'
+import { useWorkouts } from '../context/WorkoutsContext'
 import WorkoutCard from '../components/WorkoutCard'
 import './WorkoutHistory.css'
 

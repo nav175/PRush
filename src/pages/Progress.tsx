@@ -8,10 +8,11 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
-import { useWorkouts } from '../hooks/useWorkouts'
+import { useWorkouts } from '../context/WorkoutsContext'
 import './Progress.css'
 
 interface ChartPoint {
+  isoDate: string
   date: string
   maxWeight: number
 }
@@ -30,31 +31,27 @@ export default function Progress() {
   const chartData = useMemo((): ChartPoint[] => {
     if (!selected) return []
 
-    const byDate: Record<string, number> = {}
+    const byDate: Record<string, { isoDate: string; maxWeight: number }> = {}
     workouts.forEach(w => {
       const ex = w.exercises.find(e => e.name === selected)
       if (!ex) return
       const maxWeight = Math.max(...ex.sets.map(s => s.weight))
-      const dateKey = new Date(w.date).toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-      })
-      if (byDate[dateKey] === undefined || maxWeight > byDate[dateKey]) {
-        byDate[dateKey] = maxWeight
+      const dateKey = w.date.slice(0, 10) // YYYY-MM-DD for stable unique key
+      if (byDate[dateKey] === undefined || maxWeight > byDate[dateKey].maxWeight) {
+        byDate[dateKey] = { isoDate: w.date, maxWeight }
       }
     })
 
     return Object.entries(byDate)
-      .map(([date, maxWeight]) => ({ date, maxWeight }))
-      .sort((a, b) => {
-        const wa = workouts.find(w =>
-          new Date(w.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) === a.date,
-        )
-        const wb = workouts.find(w =>
-          new Date(w.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) === b.date,
-        )
-        return (wa ? new Date(wa.date).getTime() : 0) - (wb ? new Date(wb.date).getTime() : 0)
-      })
+      .sort(([a], [b]) => a.localeCompare(b)) // sort by YYYY-MM-DD string
+      .map(([, { isoDate, maxWeight }]) => ({
+        isoDate,
+        date: new Date(isoDate).toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+        }),
+        maxWeight,
+      }))
   }, [workouts, selected])
 
   return (
